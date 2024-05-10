@@ -1,0 +1,13 @@
+import { z } from "zod";
+
+export const createIssueSchema = z.object({
+  title: z
+    .string()
+    .min(1, "Title required")
+    .max(255, "Title Exceeds max length"),
+  description: z.string().min(1, "Description required"),
+});
+
+export const updateIssueSchema = z.object({
+  description: z.string().min(1, "Description required"),
+});
